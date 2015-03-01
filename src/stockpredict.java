@@ -137,7 +137,14 @@ public class stockpredict {
 
         Matrix PP = FT.times(LT).times(beta);
         predictprice = PP.getArray();
-        System.out.printf("\nthe predict price is: \n%f", predictprice[0][0]);
+        System.out.printf("\nthe predict price is: \n%f\n", predictprice[0][0]);
 
-	}
+        double variance = 1/beta + B.times(S).times(B.transpose()).get(0, 0);
+        variance = Math.sqrt(variance);
+        System.out.printf("\nthe predict variance is: \n%f\n", variance);
+
+        System.out.printf("\nthe predict price is likely in this range: \n%f ~ %f\n", predictprice[0][0] - 3 * variance, predictprice[0][0] + 3 * variance);
+
+
+    }
 }
