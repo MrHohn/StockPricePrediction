@@ -34,9 +34,31 @@ public class readCSV {
             e.printStackTrace();
         }
 
-        if(symbol == "GOOG"){
+//        System.out.println(symbol);
+        if(symbol.equals("GOOG")){
             for(int i = N - 1; i >= 0; i--){
                 price[i] = Double.parseDouble(info[N - i]);
+//                System.out.println(symbol);
+            }
+        }
+        else if(symbol.equals("YHOO")){
+            for(int i = N - 1; i >= 0; i--) {
+                price[i] = Double.parseDouble(info[233 + N - i]);
+            }
+        }
+        else if(symbol.equals("AAPL")){
+            for(int i = N - 1; i >= 0; i--) {
+                price[i] = Double.parseDouble(info[485 + N - i]);
+            }
+        }
+        else if(symbol.equals("FB")){
+            for(int i = N - 1; i >= 0; i--) {
+                price[i] = Double.parseDouble(info[737 + N - i]);
+            }
+        }
+        else if(symbol.equals("MSFT")){
+            for(int i = N - 1; i >= 0; i--) {
+                price[i] = Double.parseDouble(info[989 + N - i]);
             }
         }
 
