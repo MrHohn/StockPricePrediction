@@ -1,5 +1,4 @@
 import Jama.*;
-import java.util.Scanner;
 
 /**
  * Created by Hon on 2/27/2015.
@@ -7,25 +6,24 @@ import java.util.Scanner;
 public class StockPredict {
 
     private String symbol;
-    private int n;
     private int offset;
+    private int n = 40;
+    private int M = 4;
+    private double alpha = 0.005;
+    private double beta = 11.1;
 
     public String[] date;
 
-    public StockPredict(String symbol, int n, int offset){
+    public StockPredict(String symbol, int offset){
         this.symbol = symbol;
-        this.n = n;
         this.offset = offset;
+        n = 40;
         date = new String[n];
     }
 
     public double[] getPriceVariance() {
 
         int i,j;
-        int M = 4;
-//        int n = 40;
-        double alpha = 0.005;
-        double beta = 11.1;
 
 //        System.out.printf("M = %d\n", M);
 //        System.out.printf("Alpha = %f\n", alpha);
@@ -155,52 +153,5 @@ public class StockPredict {
         double[] priceVariance = {predictprice[0][0], variance};
 
         return priceVariance;
-    }
-
-	public static int main(String[] args) {
-
-        Scanner sc = new Scanner(System.in);
-        System.out.println("(PS: Enter quit to exit.)");
-
-        String symbol = new String();
-        while(!(symbol.equals("GOOG") || symbol.equals("YHOO") || symbol.equals("AAPL") || symbol.equals("FB") || symbol.equals("MSFT"))){
-            System.out.println("Please enter the ticker of the stock: (GOOG, YHOO, AAPL, FB or MSFT)");
-            symbol = sc.nextLine();
-            if(symbol.equals("quit"))
-                return 0;
-        }
-
-        int n = 0;
-        while((n < 10) || n > 60){
-            System.out.println("Please enter the N: (10 to 60)");
-            n = sc.nextInt();
-//            if(symbol.equals("quit"))
-//                return 0;
-        }
-
-        int offset = -1;
-        while((offset < 0) || offset > 100) {
-            System.out.println("Please enter the offset of the date: (0 to 100)");
-            offset = sc.nextInt();
-//            if(symbol.equals("quit"))
-//                return 0;
-        }
-
-        System.out.printf("\n----------The input parameters are:------------\n");
-        System.out.printf("ticker = %s\n", symbol);
-        System.out.printf("N      = %d\n", n);
-        System.out.printf("offset = %d days\n", offset);
-        System.out.printf("------------------------------------------------\n");
-
-        double[] priceVariance;
-        StockPredict Stock = new StockPredict(symbol, n, offset);
-        priceVariance = Stock.getPriceVariance();
-
-        System.out.printf("\nThe predicted date is the next day of %s\n", Stock.date[n - 1]);
-        System.out.printf("The predicted price is: %f\n", priceVariance[0]);
-        System.out.printf("The predicted variance is: %f\n", priceVariance[1]);
-        System.out.printf("The price would be likely in this range: %f ~ %f\n", priceVariance[0] - 3 * priceVariance[1], priceVariance[0] + 3 * priceVariance[1]);
-
-        return 0;
     }
 }

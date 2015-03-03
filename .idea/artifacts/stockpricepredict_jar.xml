@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="stockpricepredict:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/stockpricepredict_jar</output-path>
+    <root id="archive" name="stockpricepredict.jar">
+      <element id="module-output" name="stockpricepredict" />
+      <element id="extracted-dir" path="$USER_HOME$/Documents/Rutgers/Courses/WebApplication/codes/bayesian/java/sources/Jama-1.0.3.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

@@ -34,37 +34,26 @@ public class ReadCSV {
             e.printStackTrace();
         }
 
-//        System.out.println(symbol);
+        int position = 0;
         if(symbol.equals("GOOG")){
-            for(int i = N - 1; i >= 0; i--){
-                price[i][0] = Double.parseDouble(info[N - i + offset][0]);
-                date[i] = info[N - i + offset][1];
-//                System.out.println(symbol);
-            }
+            position = 0;
         }
         else if(symbol.equals("YHOO")){
-            for(int i = N - 1; i >= 0; i--) {
-                price[i][0] = Double.parseDouble(info[233 + N - i + offset][0]);
-                date[i] = info[233 + N - i + offset][1];
-            }
+            position = 233;
         }
         else if(symbol.equals("AAPL")){
-            for(int i = N - 1; i >= 0; i--) {
-                price[i][0] = Double.parseDouble(info[485 + N - i + offset][0]);
-                date[i] = info[485 + N - i + offset][1];
-            }
+            position = 485;
         }
         else if(symbol.equals("FB")){
-            for(int i = N - 1; i >= 0; i--) {
-                price[i][0] = Double.parseDouble(info[737 + N - i + offset][0]);
-                date[i] = info[737 + N - i + offset][1];
-            }
+            position = 737;
         }
         else if(symbol.equals("MSFT")){
-            for(int i = N - 1; i >= 0; i--) {
-                price[i][0] = Double.parseDouble(info[989 + N - i + offset][0]);
-                date[i] = info[989 + N - i + offset][1];
-            }
+            position = 989;
+        }
+
+        for(int i = N - 1; i >= 0; i--){
+            price[i][0] = Double.parseDouble(info[position + N - i + offset][0]);
+            date[i] = info[position + N - i + offset][1];
         }
     }
 
