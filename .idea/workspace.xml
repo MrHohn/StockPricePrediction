@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="22e2b3f1-ac29-40a6-af62-c338bbe82d36" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/stockpricepredict/ReadCSV.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/stockpricepredict/StockPredict.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="C:\Users\Think\IdeaProjects\stockpricepredict\src\readCSV.java" afterPath="$PROJECT_DIR$/src/ReadCSV.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-    </list>
-    <list id="1cc7d8e9-bd13-4336-875f-ce069203e891" name="Failed commit: Default" comment="Modified the interface, move the prediction into class, achieved the offset function and date display function.">
-      <change type="MOVED" beforePath="C:\Users\Think\IdeaProjects\stockpricepredict\src\stockpredict.java" afterPath="$PROJECT_DIR$/src/StockPredict.java" />
-    </list>
+    <list default="true" id="22e2b3f1-ac29-40a6-af62-c338bbe82d36" name="Default" comment="" />
+    <list id="1cc7d8e9-bd13-4336-875f-ce069203e891" name="Failed commit: Default" comment="Modified the interface, move the prediction into class, achieved the offset function and date display function." />
     <ignored path="stockpricepredict.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -41,8 +32,8 @@
           <file leaf-file-name="StockPredict.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/StockPredict.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.6853147" vertical-offset="3564" max-vertical-offset="4853">
-                  <caret line="172" column="18" selection-start-line="172" selection-start-column="18" selection-end-line="172" selection-end-column="18" />
+                <state vertical-scroll-proportion="0.55314285" vertical-offset="3564" max-vertical-offset="4853">
+                  <caret line="176" column="39" selection-start-line="176" selection-start-column="39" selection-end-line="176" selection-end-column="39" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -57,7 +48,7 @@
           <file leaf-file-name="ReadCSV.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/ReadCSV.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="1.2034189" vertical-offset="768" max-vertical-offset="1978">
+                <state vertical-scroll-proportion="0.7927928" vertical-offset="768" max-vertical-offset="1978">
                   <caret line="64" column="67" selection-start-line="64" selection-start-column="67" selection-end-line="64" selection-end-column="67" />
                   <folding>
                     <element signature="imports" expanded="true" />
@@ -468,7 +459,7 @@
       <workItem from="1425090460084" duration="374000" />
       <workItem from="1425141231133" duration="50000" />
       <workItem from="1425180829386" duration="22196000" />
-      <workItem from="1425344920692" duration="9465000" />
+      <workItem from="1425344920692" duration="9556000" />
     </task>
     <task id="LOCAL-00001" summary="user could now enter the N and Ticker for forecaster">
       <created>1425238756254</created>
@@ -492,16 +483,16 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32085000" />
+    <option name="totallyTimeSpent" value="32176000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1591" y="-9" width="1938" height="1050" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3286334" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286334" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -622,7 +613,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ReadCSV.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.2034189" vertical-offset="768" max-vertical-offset="1978">
+        <state vertical-scroll-proportion="0.7927928" vertical-offset="768" max-vertical-offset="1978">
           <caret line="64" column="67" selection-start-line="64" selection-start-column="67" selection-end-line="64" selection-end-column="67" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -632,8 +623,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/StockPredict.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6853147" vertical-offset="3564" max-vertical-offset="4853">
-          <caret line="172" column="18" selection-start-line="172" selection-start-column="18" selection-end-line="172" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.55314285" vertical-offset="3564" max-vertical-offset="4853">
+          <caret line="176" column="39" selection-start-line="176" selection-start-column="39" selection-end-line="176" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
