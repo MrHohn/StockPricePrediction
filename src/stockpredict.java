@@ -11,14 +11,20 @@ public class StockPredict {
     private int M = 4;
     private double alpha = 0.005;
     private double beta = 11.1;
+    private double t[][];
+    private double actualPrice;
+    private String actualDate;
 
-    public String[] date;
+    public String[] date = new String[n];
 
     public StockPredict(String symbol, int offset){
         this.symbol = symbol;
         this.offset = offset;
-        n = 40;
-        date = new String[n];
+        ReadCSV readData = new ReadCSV(n, symbol, offset);
+        t = readData.readPrice();
+        date = readData.readDate();
+        actualPrice = readData.readActualPrice();
+        actualDate = readData.readActualDate();
     }
 
     public double[] getPriceVariance() {
@@ -30,17 +36,12 @@ public class StockPredict {
 //        System.out.printf("Beta = %f\n", beta);
 
         double x[] = new double[n + 1];
-        double t[][];
         double a[][] = new double[M + 1][1];
         double b[][] = new double[1][M + 1];
         double s[][];
         double lt[][] = new double[M + 1][1];
         double predictprice[][];
-//        String[] date;
 
-        ReadCSV readClosePrice = new ReadCSV(n, symbol, offset);
-        t = readClosePrice.readPrice();
-        date = readClosePrice.readDate();
 
         /*---------------initialize the training data---------------*/
 
@@ -142,16 +143,20 @@ public class StockPredict {
 
         Matrix PP = FT.times(LT).times(beta);
         predictprice = PP.getArray();
-//        System.out.printf("\nthe predict price is: \n%f\n", predictprice[0][0]);
 
         double variance = 1/beta + B.times(S).times(B.transpose()).get(0, 0);
         variance = Math.sqrt(variance);
-//        System.out.printf("\nthe predict variance is: \n%f\n", variance);
-
-//        System.out.printf("\nthe predict price is likely in this range: \n%f ~ %f\n", predictprice[0][0] - 3 * variance, predictprice[0][0] + 3 * variance);
 
         double[] priceVariance = {predictprice[0][0], variance};
 
         return priceVariance;
+    }
+
+    public String getActualDate(){
+        return actualDate;
+    }
+
+    public double getActualPrice(){
+        return actualPrice;
     }
 }

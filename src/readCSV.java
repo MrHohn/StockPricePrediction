@@ -11,16 +11,20 @@ public class ReadCSV {
     private String[][] info;
     private String symbol;
     private int offset;
+    private int position;
 
     public ReadCSV(int N, String symbol, int offset){
         this.N = N;
         price = new double[N][1];
         date = new String[N];
         this.symbol = symbol;
+        this.offset = offset;
 
-        info = new String[1241][2];
+        String fileName = symbol + "_history.csv";
+
+        info = new String[300][2];
         try {
-            BufferedReader reader = new BufferedReader(new FileReader("stockhistorical.csv"));
+            BufferedReader reader = new BufferedReader(new FileReader(fileName));
             String line = null;
             int count = 0;
             while((line = reader.readLine()) != null){
@@ -34,26 +38,9 @@ public class ReadCSV {
             e.printStackTrace();
         }
 
-        int position = 0;
-        if(symbol.equals("GOOG")){
-            position = 0;
-        }
-        else if(symbol.equals("YHOO")){
-            position = 233;
-        }
-        else if(symbol.equals("AAPL")){
-            position = 485;
-        }
-        else if(symbol.equals("FB")){
-            position = 737;
-        }
-        else if(symbol.equals("MSFT")){
-            position = 989;
-        }
-
         for(int i = N - 1; i >= 0; i--){
-            price[i][0] = Double.parseDouble(info[position + N - i + offset][0]);
-            date[i] = info[position + N - i + offset][1];
+            price[i][0] = Double.parseDouble(info[N - i + offset][0]);
+            date[i] = info[N - i + offset][1];
         }
     }
 
@@ -65,5 +52,15 @@ public class ReadCSV {
     public String[] readDate() {
 
         return date;
+    }
+
+    public String readActualDate() {
+
+        return info[position + offset][1];
+    }
+
+    public Double readActualPrice() {
+
+        return Double.parseDouble(info[position + offset][0]);
     }
 }
