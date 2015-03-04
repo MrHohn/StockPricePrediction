@@ -28,19 +28,24 @@ public class TestStockPrediction {
             }
         }
 
-        System.out.printf("\n----------The input parameters are:------------\n");
+        System.out.printf("\n---------- The input parameters are: ----------\n\n");
         System.out.printf("ticker = %s\n", symbol);
         System.out.printf("offset = %d days\n", offset);
-        System.out.printf("------------------------------------------------\n");
 
         double[] priceVariance;
         StockPredict Stock = new StockPredict(symbol, offset);
         priceVariance = Stock.getPriceVariance();
 
-        System.out.printf("\nThe predicted date is the next day of %s\n", Stock.date[Stock.date.length - 1]);
+        System.out.printf("\n-------------- The prediction is: --------------\n\n");
+        System.out.printf("The predicted date is: %s\n", Stock.getActualDate());
         System.out.printf("The predicted price is: %f\n", priceVariance[0]);
         System.out.printf("The predicted variance is: %f\n", priceVariance[1]);
         System.out.printf("The price would be likely in this range: %f ~ %f\n", priceVariance[0] - 3 * priceVariance[1], priceVariance[0] + 3 * priceVariance[1]);
+
+        System.out.printf("\n-------- The actual price and error are: --------\n\n");
+        System.out.printf("The actual price is: %f\n", Stock.getActualPrice());
+        System.out.printf("The prediction error is: %f\n", Math.abs(priceVariance[0] - Stock.getActualPrice()));
+        System.out.printf("\n---------------------- END ----------------------\n");
 
     }
 }
