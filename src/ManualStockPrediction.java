@@ -1,20 +1,24 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
  * Created by Hon on 3/3/2015.
  */
-public class TestStockPrediction {
+public class ManualStockPrediction {
 
-    public static void main(String[] args) {
+    public void runPrediction() {
+        System.out.printf("\n------------------- MANUAL MODE --------------------\n");
+
+        String[] symbolList = {"AAPL", "AMZN", "CAJ", "FB", "GOOG", "MSFT", "NINOY", "SNE", "WMT", "YHOO"};
 
         Scanner sc = new Scanner(System.in);
 
         String cont = "yes"; // this variable is used to judge whether the user want to continue
         while(cont.equals("yes")){
 
-            String symbol = new String();
-            while(!(symbol.equals("GOOG") || symbol.equals("YHOO") || symbol.equals("AAPL") || symbol.equals("FB") || symbol.equals("MSFT"))){
-                System.out.println("Please enter the ticker of the stock: (GOOG, YHOO, AAPL, FB or MSFT)");
+            String symbol = "";
+            while(!(Arrays.asList(symbolList).contains(symbol))){
+                System.out.println("Please enter the ticker of the stock: (AAPL, AMZN, CAJ, FB, GOOG, MSFT, NINOY, SNE, WMT, or YHOO)");
                 symbol = sc.nextLine();
             }
 
@@ -36,7 +40,7 @@ public class TestStockPrediction {
             System.out.printf("offset = %d days\n", offset);
 
             double[] priceVariance;
-            StockPredict Stock = new StockPredict(symbol, offset);
+            StockPredict Stock = new StockPredict(symbol, offset, 10);
             priceVariance = Stock.getPriceVariance();
 
             System.out.printf("\n-------------- The prediction is: --------------\n\n");
@@ -48,10 +52,12 @@ public class TestStockPrediction {
             System.out.printf("\n-------- The actual price and error are: --------\n\n");
             System.out.printf("The actual price is: %f\n", Stock.getActualPrice());
             System.out.printf("The prediction error is: %f\n", Math.abs(priceVariance[0] - Stock.getActualPrice()));
+            System.out.printf("The relative error is: %f\n", Math.abs(priceVariance[0] - Stock.getActualPrice()) / Stock.getActualPrice());
             System.out.printf("\n---------------------- END ----------------------\n");
 
-            System.out.println("Do you want to continue? (yes/no)");
+            System.out.println("Do you want to continue? (yes/anything)");
             cont = sc.nextLine();
+            System.out.printf("\n");
         }
 
     }

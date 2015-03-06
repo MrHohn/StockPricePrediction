@@ -7,8 +7,9 @@ public class StockPredict {
 
     private String symbol;
     private int offset;
-    private int n = 40;
-    private int M = 4;
+    //define the parameters for Bayesian Curve Fitting
+    private int n;
+    private int M = 5;
     private double alpha = 0.005;
     private double beta = 11.1;
     private double t[][];
@@ -17,7 +18,7 @@ public class StockPredict {
 
     public String[] date = new String[n];
 
-    public StockPredict(String symbol, int offset){
+    public StockPredict(String symbol, int offset, int n){
         this.symbol = symbol;
         this.offset = offset;
         ReadCSV readData = new ReadCSV(n, symbol, offset);
@@ -25,6 +26,7 @@ public class StockPredict {
         date = readData.readDate();
         actualPrice = readData.readActualPrice();
         actualDate = readData.readActualDate();
+        this.n = n;
     }
 
     public double[] getPriceVariance() {
@@ -110,8 +112,8 @@ public class StockPredict {
         /*------------calculate the inversion of matrix S-------------*/
 
         S = S.inverse();
-        s = S.getArray();
 
+//        s = S.getArray();
 //        System.out.printf("\nthe Matrix S is:\n");
 //        for(i = 0; i <= M; i++)
 //        {
@@ -153,10 +155,12 @@ public class StockPredict {
     }
 
     public String getActualDate(){
+
         return actualDate;
     }
 
     public double getActualPrice(){
+
         return actualPrice;
     }
 }

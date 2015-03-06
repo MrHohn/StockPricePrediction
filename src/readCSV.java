@@ -20,7 +20,7 @@ public class ReadCSV {
         this.symbol = symbol;
         this.offset = offset;
 
-        String fileName = symbol + "_history.csv";
+        String fileName = "StockData/" + symbol + "_history.csv";
 
         info = new String[300][2];
         try {
